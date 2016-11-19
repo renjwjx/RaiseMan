@@ -8,8 +8,9 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface Document : NSDocument
 
+@interface Document : NSDocument
+@property (readwrite, nonatomic, strong) NSMutableArray *employees;
 
 @end
 

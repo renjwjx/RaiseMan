@@ -18,6 +18,7 @@
     self = [super init];
     if (self) {
         // Add your subclass-specific initialization here.
+        _employees = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -37,8 +38,9 @@
 - (NSData *)dataOfType:(NSString *)typeName error:(NSError **)outError {
     // Insert code here to write your document to data of the specified type. If outError != NULL, ensure that you create and set an appropriate error when returning nil.
     // You can also choose to override -fileWrapperOfType:error:, -writeToURL:ofType:error:, or -writeToURL:ofType:forSaveOperation:originalContentsURL:error: instead.
-    [NSException raise:@"UnimplementedMethod" format:@"%@ is unimplemented", NSStringFromSelector(_cmd)];
-    return nil;
+    //    [NSKeyedArchiver archivedDataWithRootObject:_employees];
+    //    [NSException raise:@"UnimplementedMethod" format:@"%@ is unimplemented", NSStringFromSelector(_cmd)];
+    return [NSKeyedArchiver archivedDataWithRootObject:_employees];;
 }
 
 
@@ -46,9 +48,30 @@
     // Insert code here to read your document from the given data of the specified type. If outError != NULL, ensure that you create and set an appropriate error when returning NO.
     // You can also choose to override -readFromFileWrapper:ofType:error: or -readFromURL:ofType:error: instead.
     // If you override either of these, you should also override -isEntireFileLoaded to return NO if the contents are lazily loaded.
-    [NSException raise:@"UnimplementedMethod" format:@"%@ is unimplemented", NSStringFromSelector(_cmd)];
+    //    [NSException raise:@"UnimplementedMethod" format:@"%@ is unimplemented", NSStringFromSelector(_cmd)];
+    
+    NSMutableArray *newArray = nil;
+    @try {
+        newArray = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    }
+    @catch(NSException *e) {
+        if (outError) {
+            NSDictionary *d = [NSDictionary dictionaryWithObject:@"The data is corrupted." forKey:NSLocalizedFailureReasonErrorKey];
+            *outError = [NSError errorWithDomain:NSOSStatusErrorDomain code:unimpErr userInfo:d];
+        }
+        return NO;
+    }
+    [self setEmployees:newArray];
+    
     return YES;
 }
 
+- (void)setEmployees:(NSMutableArray *)a
+{
+    if (a == _employees) {
+        return;
+    }
+    _employees = a;
+}
 
 @end

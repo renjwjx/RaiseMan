@@ -13,6 +13,7 @@
 		EED98BBB1DE059E00070F016 /* Document.xib in Resources */ = {isa = PBXBuildFile; fileRef = EED98BB91DE059E00070F016 /* Document.xib */; };
 		EED98BBD1DE059E00070F016 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EED98BBC1DE059E00070F016 /* Assets.xcassets */; };
 		EED98BC01DE059E10070F016 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = EED98BBE1DE059E10070F016 /* MainMenu.xib */; };
+		EED98BCC1DE061AA0070F016 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = EED98BCB1DE061AA0070F016 /* Person.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		EED98BBC1DE059E00070F016 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EED98BBF1DE059E10070F016 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		EED98BC11DE059E10070F016 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EED98BCA1DE061AA0070F016 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
+		EED98BCB1DE061AA0070F016 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +63,8 @@
 			children = (
 				EED98BB01DE059E00070F016 /* AppDelegate.h */,
 				EED98BB11DE059E00070F016 /* AppDelegate.m */,
+				EED98BCA1DE061AA0070F016 /* Person.h */,
+				EED98BCB1DE061AA0070F016 /* Person.m */,
 				EED98BB61DE059E00070F016 /* Document.h */,
 				EED98BB71DE059E00070F016 /* Document.m */,
 				EED98BB91DE059E00070F016 /* Document.xib */,
@@ -153,6 +158,7 @@
 			files = (
 				EED98BB81DE059E00070F016 /* Document.m in Sources */,
 				EED98BB51DE059E00070F016 /* main.m in Sources */,
+				EED98BCC1DE061AA0070F016 /* Person.m in Sources */,
 				EED98BB21DE059E00070F016 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
