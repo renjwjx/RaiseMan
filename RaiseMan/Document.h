@@ -11,6 +11,9 @@
 
 @interface Document : NSDocument
 @property (readwrite, nonatomic, strong) NSMutableArray *employees;
+@property (readwrite, weak) IBOutlet NSArrayController *employeeController;
+
+- (IBAction)removeEmployees:(id)sender;
 
 @end
 

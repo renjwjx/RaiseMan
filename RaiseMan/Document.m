@@ -74,4 +74,24 @@
     _employees = a;
 }
 
+- (IBAction)removeEmployees:(id)sender
+{
+    //NSArray *selectPeoples = [_employeeController selectedObjects];
+    NSAlert *alert = [[NSAlert alloc] init];
+    [alert addButtonWithTitle:@"Stop"];
+    [alert addButtonWithTitle:@"Abort"];
+    [alert addButtonWithTitle:@"Delete"];
+    [alert setMessageText:@"Do you really want to remove these people?"];
+    [alert setInformativeText:@"Selected people will be removed."];
+    [alert setAlertStyle:NSAlertStyleCritical];
+    [alert beginSheetModalForWindow:[NSApplication sharedApplication].keyWindow completionHandler:^(NSModalResponse returnCode) {
+        if (returnCode == NSAlertThirdButtonReturn)
+        {
+            //The array controller will delete the selected objects
+            [_employeeController remove:nil];
+        }
+    }];
+
+}
+
 @end
