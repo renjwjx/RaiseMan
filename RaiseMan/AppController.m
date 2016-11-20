@@ -32,6 +32,16 @@
     [[NSUserDefaults standardUserDefaults] registerDefaults:defaultValue];
 }
 
+//NSApplicationDidResignActiveNotification
+- (void)applicationDidResignActive:(NSNotification *)notification
+{
+    NSBeep();
+    NSLog(@"applicationDidResignActive");
+}
 
+- (void)applicationWillTerminate:(NSNotification *)aNotification {
+    // Insert code here to tear down your application
+    NSLog(@"applicationWillTerminated");
+}
 
 @end
